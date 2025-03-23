@@ -1,12 +1,20 @@
-# Data Project Template
+# Predicting Car Insurance Premims using Machine Learning
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
+## Table of Contents
+* Introduction
+* Dataset
+* Project Structure
+* Installation
+* Usage 
+* Results 
+* Technologies Used
+* Future Improvements
 
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+## Introduction
 
+## Dataset
+
+## Project Structure
 ## Adjusting .gitignore
 
 Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
