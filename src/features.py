@@ -13,7 +13,7 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     # One hot-encode categorical features
     categorical_cols = [
         'Gender', 'Region', 'Employment_Status', 'Education_Level',
-        'Car_Make', 'Car_Model', 'Marital_Status', 'Vehicle_Usage'
+        'Car_Make', 'Car_Model', 'Marital_Status', 'Vehicle_Usage', "Credit_Category"
     ]
 
     df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
