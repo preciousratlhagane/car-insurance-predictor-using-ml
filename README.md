@@ -1,4 +1,4 @@
-# Predicting Car Insurance Premims using Machine Learning
+# Improving Car Insurance Premium Pricing through Predictive Modelling
 
 ## Table of Contents
 * Introduction
@@ -11,33 +11,16 @@
 * Future Improvements
 
 ## Introduction
+A small South African insurance provider is looking to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments which often leads to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
 ## Dataset
+> **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
-## Project Structure
-## Adjusting .gitignore
-
-Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
-
-```plaintext
-# exclude data from source control by default
-# /data/
-```
-
-Typically, you want to exclude this folder if it contains either sensitive data that you do not want to add to version control or large files.
-
-## Duplicating the .env File
-To set up your environment variables, you need to duplicate the `.env.example` file and rename it to `.env`. You can do this manually or using the following terminal command:
-
-```bash
-cp .env.example .env # Linux, macOS, Git Bash, WSL
-copy .env.example .env # Windows Command Prompt
-```
-
-This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
+- Number of records: 15000 rows
+- Features: 
 
 
-## Project Organization
+## 🗃️ Project Organization
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
@@ -76,10 +59,58 @@ This command creates a copy of `.env.example` and names it `.env`, allowing you 
     │   ├── predict.py          <- Code to run model inference with trained models          
     │   └── train.py            <- Code to train models
     │
-    ├── plots.py                <- Code to create visualizations 
     │
     └── services                <- Service classes to connect with external platforms, tools, or APIs
         └── __init__.py 
 ```
 
 --------
+## ⚙️ Installation
+
+```bash
+# Clone the repository
+git clone git clone https://github.com/your_username/project_name.git 
+cd car-insurance-predictor-using-ml
+
+# Create virtual environmentt (optional)
+python -m venv env
+source env/bin/activate # On Windows use: env\Scripts\activate
+
+#Install dependencies
+pip install -r requirements.txt
+```
+
+## App Deployment
+
+An interactive app has been built using **Streamlit** to demonstrate the prediction of car insurance premiums. Users can input customer and vehicle information through a simple UI and recieve a premium estimate based on the trained machine learning model. 
+
+### To run the app locally
+
+```bash
+streamlit run app.py
+```
+
+The app will open in your browser at: 
+
+```plaintext
+http://localhost:8501
+```
+
+### 🌐 Live Demonstration
+
+A live version of the app is hosted at: *app_link*
+
+### App Preview
+
+## Results
+
+## Technologies Used
+
+## Future Improvements
+
+## Contributors
+
+## License
+This project is for educational and demonstration purposes only. Feel free to use, modify, and build upon it.
+
+
