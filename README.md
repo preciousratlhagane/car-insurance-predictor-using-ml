@@ -25,6 +25,8 @@ A small South African insurance provider is looking to improve how it sets insur
 ```
 ├── LICENSE            <- Open-source license if one is chosen
 ├── README.md          <- The top-level README for developers using this project
+├── app.py
+├── assets             <- Contains images and visual assets for documentation/app
 ├── data
 │   ├── processed      <- The final, canonical data sets for modeling
 │   └── raw            <- The original, immutable data dump
