@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import os
 import sys
 
@@ -51,9 +52,9 @@ X_test_scaled = np.hstack([X_test_numeric_scaled, X_test_ohe.values])
 
 # Define the models and their respective parameters
 models = {
-    "Random Forest": RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42),
+    "Random Forest": RandomForestRegressor(n_estimators=80, max_depth=10, random_state=42),
     "Ridge": Ridge(alpha=1.0),
-    "XGBoost": XGBRegressor(n_estimators=100, max_depth=6, learning_rate=0.1, random_state=42)
+    "XGBoost": XGBRegressor(n_estimators=80, max_depth=6, learning_rate=0.1, random_state=42)
 }
 
 # Store the results of the evaluation metrics of the different models
@@ -76,6 +77,7 @@ for model_name, model in models.items():
     mae_test = mean_absolute_error(y_test, y_test_pred)
     rmse_test = np.sqrt(mean_squared_error(y_test, y_test_pred))
     r2_test = r2_score(y_test, y_test_pred)
+    mae_percentage = np.mean(np.abs((y_test - y_test_pred) / y_test)) * 100
 
     # Save to dictionary
     model_results[model_name] = {
@@ -85,12 +87,6 @@ for model_name, model in models.items():
         "R2_Train": r2_train,
         "MAE_Test": mae_test,
         "RMSE_Test": rmse_test,
-        "R2_Test": r2_test
+        "R2_Test": r2_test,
+        "MAPE_Test": mae_percentage
     }
-
-    # Print results
-    print(f"--- {model_name} ---")
-    print(
-        f"Train -> MAE: {mae_train:.2f}, RMSE: {rmse_train:.2f}, R²: {r2_train:.6f}")
-    print(
-        f"Test  -> MAE: {mae_test:.2f}, RMSE: {rmse_test:.2f}, R²: {r2_test:.6f}\n")
