@@ -17,7 +17,7 @@ A small South African insurance provider is looking to improve how it sets insur
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
 - Number of records: 15000 rows
-- Features: 
+- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, mileage
 
 
 ## 🗃️ Project Organization
@@ -89,6 +89,7 @@ An interactive app has been built using **Streamlit** to demonstrate the predict
 ### To run the app locally
 
 ```bash
+cd streamlit
 streamlit run app.py
 ```
 
