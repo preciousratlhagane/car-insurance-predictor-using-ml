@@ -104,7 +104,9 @@ for model_name, model in models.items():
 
 
 # Define the save directory to save the trained models and the metrics list
-save_dir = "../../models"
+save_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "models"))
+os.makedirs(save_dir, exist_ok=True)
+
 
 # Save the metrics into a pandas dataframe
 metrics_df = pd.DataFrame(metrics_list)
@@ -120,3 +122,5 @@ for model_name, results in model_results.items():
 # Save the fitted scaler
 scaler_file = os.path.join(save_dir, "scaler.joblib")
 joblib.dump((scaler, numeric_columns.tolist()), scaler_file)
+
+print(os.getcwd())
