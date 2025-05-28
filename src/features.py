@@ -8,12 +8,12 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     # Calculate the proportion of the claims to the number of accidents
     df['Accident_Claim_Rate'] = df['Number_of_Claims'] / \
         df['Number_of_Accidents'].replace(0, np.nan)
-    df['Accident_Claim_Rate'].fillna(0, inplace=True)
+    df['Accident_Claim_Rate'] = df['Accident_Claim_Rate'].fillna(0)
 
     # Calculate the claims made per year by each driver
     df['Claims_per_Year'] = df['Number_of_Claims'] / \
         df['Years_Driving'].replace(0, np.nan)
-    df['Claims_per_Year'].fillna(0, inplace=True)
+    df['Claims_per_Year'] = df['Claims_per_Year'].fillna(0)
 
     # Drop only non-useful columns
     df.drop(columns=["Customer_ID"], inplace=True)
