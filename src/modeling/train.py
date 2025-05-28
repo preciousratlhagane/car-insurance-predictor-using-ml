@@ -1,7 +1,6 @@
-import matplotlib.pyplot as plt
 import os
 import sys
-
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
@@ -59,6 +58,7 @@ models = {
 
 # Store the results of the evaluation metrics of the different models
 model_results = {}
+metrics_list = []
 
 # Evaluate each model
 for model_name, model in models.items():
@@ -90,3 +90,33 @@ for model_name, model in models.items():
         "R2_Test": r2_test,
         "MAPE_Test": mae_percentage
     }
+
+    metrics_list.append({
+        "model": model,
+        "MAE_Train": mae_train,
+        "RMSE_Train": rmse_train,
+        "R2_Train": r2_train,
+        "MAE_Test": mae_test,
+        "RMSE_Test": rmse_test,
+        "R2_Test": r2_test,
+        "MAPE_Test (%)": mae_percentage
+    })
+
+
+# Define the save directory to save the trained models and the metrics list
+save_dir = "../../models"
+
+# Save the metrics into a pandas dataframe
+metrics_df = pd.DataFrame(metrics_list)
+metrics_df.to_csv(os.path.join(save_dir, "model_metrics.csv"), index=False)
+
+
+# Save trained models using joblib
+for model_name, results in model_results.items():
+    model_file = os.path.join(
+        save_dir, f"{model_name.replace(' ', '_').lower()}_model.joblib")
+    joblib.dump(results["model"], model_file)
+
+# Save the fitted scaler
+scaler_file = os.path.join(save_dir, "scaler.joblib")
+joblib.dump((scaler, numeric_columns.tolist()), scaler_file)
