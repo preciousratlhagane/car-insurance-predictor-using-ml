@@ -11,7 +11,7 @@
 * Future Improvements
 
 ## Introduction
-A small South African insurance provider is looking to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments which often leads to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
+A small South African insurance provider wants to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments, often leading to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
 ## Dataset
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
@@ -29,10 +29,10 @@ A small South African insurance provider is looking to improve how it sets insur
 │   └── app.py
 ├── assets             <- Contains images and visual assets for documentation/app
 ├── data
-│   ├── processed      <- The final, canonical data sets for modeling
+│   ├── processed      <- The final, canonical data sets for modelling
 │   └── raw            <- The original, immutable data dump
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models             <- Trained and serialised models, model predictions, or model summaries
 │
 ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
@@ -44,7 +44,7 @@ A small South African insurance provider is looking to improve how it sets insur
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+│                         Generated with `pip freeze > requirements.txt`
 │
 └── src                         <- Source code for this project
     │
@@ -54,7 +54,7 @@ A small South African insurance provider is looking to improve how it sets insur
     │
     ├── dataset.py              <- Scripts to download or generate data
     │
-    ├── features.py             <- Code to create features for modeling
+    ├── features.py             <- Code to create features for modelling
     │
     │    
     ├── modeling                
@@ -75,7 +75,7 @@ A small South African insurance provider is looking to improve how it sets insur
 git clone git clone https://github.com/your_username/project_name.git 
 cd car-insurance-predictor-using-ml
 
-# Create virtual environmentt (optional)
+# Create virtual environment (optional)
 python -m venv env
 source env/bin/activate # On Windows use: env\Scripts\activate
 
