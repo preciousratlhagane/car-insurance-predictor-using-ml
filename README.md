@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ## App Deployment
 
-An interactive app has been built using **Streamlit** to demonstrate the prediction of car insurance premiums. Users can input customer and vehicle information through a simple UI and recieve a premium estimate based on the trained machine learning model. 
+An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model. 
 
 ### To run the app locally
 
@@ -112,9 +112,7 @@ A live version of the app is hosted at: *app_link*
 
 ## Future Improvements
 
-## Contributors
-
 ## License
-This project is for educational and demonstration purposes only. Feel free to use, modify, and build upon it.
+This project is for educational and demonstration purposes only. You can use, modify, and build upon it.
 
 
