@@ -17,7 +17,7 @@ A small South African insurance provider wants to improve how it sets insurance 
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
 - Number of records: 15000 rows
-- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, mileage
+- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, and mileage
 
 
 ## 🗃️ Project Organization
