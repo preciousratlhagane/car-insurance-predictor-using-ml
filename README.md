@@ -1,6 +1,6 @@
 # Improving Car Insurance Premium Pricing through Predictive Modelling
 
-## Table of Contents
+## 🗞️ Table of Contents
 * Introduction
 * Dataset
 * Project Structure
@@ -10,10 +10,10 @@
 * Technologies Used
 * Future Improvements
 
-## Introduction
+## 💭 Introduction
 A small South African insurance provider wants to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments, often leading to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
-## Dataset
+## 📔 Dataset
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
 - Number of records: 15000 rows
@@ -83,7 +83,7 @@ source env/bin/activate # On Windows use: env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## App Deployment
+## ⌨️ App Deployment
 
 An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model. 
 
@@ -104,16 +104,22 @@ http://localhost:8501
 
 A live version of the app is hosted at: *app_link*
 
-### App Preview
+### 🖥️ App Preview
 
 ## Results
+The best-performing model was **Ridge model**, achieving:
+- MAE:
+- RMSE: 
+- R² Score: 
 
 ## Technologies Used
 ![Seaborn](https://img.shields.io/badge/Seaborn-4c72b0?style=for-the-badge&logo=python&logoColor=white)![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
 
-## Future Improvements
+## 🧪 Future Improvements
+- Hyperparameter tuning with GridSearchCV or Optuna
+- Integrate real-world datasets(e.g Kaggle, Google Dataset Search, public APIs)
 
-## License
+## 📜 License
 This project is for educational and demonstration purposes only. You can use, modify, and build upon it.
 
 
