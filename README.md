@@ -11,13 +11,13 @@
 * Future Improvements
 
 ## Introduction
-A small South African insurance provider is looking to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments which often leads to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
+A small South African insurance provider wants to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments, often leading to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
 ## Dataset
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
 - Number of records: 15000 rows
-- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, mileage
+- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, and mileage
 
 
 ## 🗃️ Project Organization
@@ -29,10 +29,10 @@ A small South African insurance provider is looking to improve how it sets insur
 │   └── app.py
 ├── assets             <- Contains images and visual assets for documentation/app
 ├── data
-│   ├── processed      <- The final, canonical data sets for modeling
+│   ├── processed      <- The final, canonical data sets for modelling
 │   └── raw            <- The original, immutable data dump
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models             <- Trained and serialised models, model predictions, or model summaries
 │
 ├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
 │                         the creator's initials, and a short `-` delimited description, e.g.
@@ -44,7 +44,7 @@ A small South African insurance provider is looking to improve how it sets insur
 │   └── figures        <- Generated graphics and figures to be used in reporting
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+│                         Generated with `pip freeze > requirements.txt`
 │
 └── src                         <- Source code for this project
     │
@@ -54,7 +54,7 @@ A small South African insurance provider is looking to improve how it sets insur
     │
     ├── dataset.py              <- Scripts to download or generate data
     │
-    ├── features.py             <- Code to create features for modeling
+    ├── features.py             <- Code to create features for modelling
     │
     │    
     ├── modeling                
@@ -75,7 +75,7 @@ A small South African insurance provider is looking to improve how it sets insur
 git clone git clone https://github.com/your_username/project_name.git 
 cd car-insurance-predictor-using-ml
 
-# Create virtual environmentt (optional)
+# Create virtual environment (optional)
 python -m venv env
 source env/bin/activate # On Windows use: env\Scripts\activate
 
@@ -85,7 +85,7 @@ pip install -r requirements.txt
 
 ## App Deployment
 
-An interactive app has been built using **Streamlit** to demonstrate the prediction of car insurance premiums. Users can input customer and vehicle information through a simple UI and recieve a premium estimate based on the trained machine learning model. 
+An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model. 
 
 ### To run the app locally
 
@@ -112,9 +112,7 @@ A live version of the app is hosted at: *app_link*
 
 ## Future Improvements
 
-## Contributors
-
 ## License
-This project is for educational and demonstration purposes only. Feel free to use, modify, and build upon it.
+This project is for educational and demonstration purposes only. You can use, modify, and build upon it.
 
 
