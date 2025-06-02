@@ -77,7 +77,7 @@ tracking_device = st.radio(
 st.write("You chose:", tracking_device)
 
 # Policy_term
-policy_term = st.selectbox("6", "12")
+policy_term = st.selectbox("Policy_Term", ["6", "12"])
 st.write("You chose:", policy_term)
 
 # Credit Score
