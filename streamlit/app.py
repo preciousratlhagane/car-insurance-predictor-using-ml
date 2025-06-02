@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.header("Demographic information")
+
 # Enter your age
 age = st.number_input(
     "Enter your age", value=None, placeholder="Type a number..."
@@ -10,6 +12,11 @@ st.write("The current age is", age)
 # Enter your gender
 gender = st.selectbox("Gender", ["Male", "Female"])
 st.write("You selected:", gender)
+
+# Marital_Status
+marital_status = st.selectbox(
+    "Marital_status", ["Widowed", "Single", "Married", "Divorced"])
+st.write("You chose:", marital_status)
 
 # Province
 province = st.selectbox("Province", ["Free State", "Limpopp", "Gauteng", "Mpumalanga",
@@ -25,6 +32,8 @@ years_driving = st.slider(
     "How many years of driving experience do you have?", 0, 130, 25)
 st.write("You chose:", years_driving)
 
+st.header("Vehicle information")
+
 # Car Make
 car_make = st.selectbox("Car_Make", ["Ford", "BMW", "Hyundai",
                         "Toyota", "Mercedes", "Volkswagen"])
@@ -33,11 +42,6 @@ st.write("You chose:", car_make)
 # Car_Model
 car_model = st.selectbox("Car_Model", ["Fiesta", "X5", "Tucson", "118i", "Creta", "EcoSport", "i20", "Hilux",
                          "Corolla", "Ranger", "320i", "Fortuner", "Golf", "A200", "GLA", "Tiguan", "C200", "Polo"])
-
-# Marital_Status
-marital_status = st.selectbox(
-    "Marital_status", ["Widowed", "Single", "Married", "Divorced"])
-st.write("You chose:", marital_status)
 
 # Vehicle_usage
 vehicle_usage = st.selectbox(
