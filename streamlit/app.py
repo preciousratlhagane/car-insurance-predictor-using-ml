@@ -31,8 +31,13 @@ employment_status = st.selectbox("Employment_status", [
 
 # Years_driving
 max_years_driving = age - 18
-years_driving = st.slider(
-    "How many years of driving experience do you have?", min_value=0, max_value=max_years_driving, value=min(5, max_years_driving))
+if max_years_driving > 0:
+    years_driving = st.slider(
+        "How many years of driving experience do you have?", min_value=0, max_value=max_years_driving, value=min(5, max_years_driving))
+else:
+    years_driving = 0
+    st.warning(
+        "You are not eligible to drive yet. Driving experience is set to 0.")
 st.write("You chose:", years_driving)
 
 st.header("Vehicle information")
