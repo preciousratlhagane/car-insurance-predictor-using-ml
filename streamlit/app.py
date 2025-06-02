@@ -12,13 +12,13 @@ gender = st.selectbox("Gender", ["Male", "Female"])
 st.write("You selected:", gender)
 
 # Province
-province = st.selectbox("Free State", "Limpopp", "Gauteng", "Mpumalanga",
-                        "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape")
+province = st.selectbox("Province", ["Free State", "Limpopp", "Gauteng", "Mpumalanga",
+                        "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape"])
 st.write("You selected:", province)
 
 # Employment status
-employment_status = st.selectbox(
-    "Self-employed", "Employed", "Retired", "Unemployed", "Student")
+employment_status = st.selectbox("Employment_status", [
+                                 "Self-employed", "Employed", "Retired", "Unemployed", "Student"])
 
 # Years_driving
 years_driving = st.slider(
@@ -26,20 +26,22 @@ years_driving = st.slider(
 st.write("You chose:", years_driving)
 
 # Car Make
-car_make = st.selectbox("Ford", "BMW", "Hyundai",
-                        "Toyota", "Mercedes", "Volkswagen")
+car_make = st.selectbox("Car_Make", ["Ford", "BMW", "Hyundai",
+                        "Toyota", "Mercedes", "Volkswagen"])
 st.write("You chose:", car_make)
 
 # Car_Model
-car_model = st.selectbox("Fiesta", "X5", "Tucson", "118i", "Creta", "EcoSport", "i20", "Hilux",
-                         "Corolla", "Ranger", "320i", "Fortuner", "Golf", "A200", "GLA", "Tiguan", "C200", "Polo")
+car_model = st.selectbox("Car_Model", ["Fiesta", "X5", "Tucson", "118i", "Creta", "EcoSport", "i20", "Hilux",
+                         "Corolla", "Ranger", "320i", "Fortuner", "Golf", "A200", "GLA", "Tiguan", "C200", "Polo"])
 
 # Marital_Status
-marital_status = st.selectbox("Widowed", "Single", "Married", "Divorced")
+marital_status = st.selectbox(
+    "Marital_status", ["Widowed", "Single", "Married", "Divorced"])
 st.write("You chose:", marital_status)
 
 # Vehicle_usage
-vehicle_usage = st.selectbox("Commercial", "Business", "Private")
+vehicle_usage = st.selectbox(
+    "Vehicle_usage", ["Commercial", "Business", "Private"])
 st.write("You chose:", vehicle_usage)
 
 # Manufacture_year
