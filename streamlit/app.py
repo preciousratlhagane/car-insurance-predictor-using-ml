@@ -1,13 +1,22 @@
 import streamlit as st
 import joblib
 import numpy as np
+import pandas as pd
+
+# Paths to the model and scaler
+model_path = ("../models")
+scaler_path = ("../models")
+
+# Load model and scaler
+model = joblib.load(model_path)
+scaler = joblib.load(scaler_path)
 
 st.header("Demographic information")
 
 # Enter your age
-age = st.number_input(
+age = int(st.number_input(
     "Enter your age", value=None, placeholder="Type a number...", min_value=18, max_value=100
-)
+))
 
 st.write("The current age is", age)
 
@@ -25,6 +34,10 @@ province = st.selectbox("Province", ["Free State", "Limpopp", "Gauteng", "Mpumal
                         "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape"])
 st.write("You selected:", province)
 
+# Education Level
+education_level = st.selectbox(
+    "Education_level", ["High School", "Diploma", "Degree", "Postgraduate"])
+
 # Employment status
 employment_status = st.selectbox("Employment_status", [
                                  "Self-employed", "Employed", "Retired", "Unemployed", "Student"])
@@ -32,8 +45,8 @@ employment_status = st.selectbox("Employment_status", [
 # Years_driving
 max_years_driving = age - 18
 if max_years_driving > 0:
-    years_driving = st.slider(
-        "How many years of driving experience do you have?", min_value=0, max_value=max_years_driving, value=min(5, max_years_driving))
+    years_driving = int(st.slider(
+        "How many years of driving experience do you have?", min_value=0, max_value=max_years_driving, value=min(5, max_years_driving)))
 else:
     years_driving = 0
     st.warning(
@@ -66,23 +79,23 @@ vehicle_usage = st.selectbox(
 st.write("You chose:", vehicle_usage)
 
 # Manufacture_year
-manufacture_year = st.number_input(
-    "Car Manufacture Year:", value=None, placeholder="Type a number...")
+manufacture_year = int(st.number_input(
+    "Car Manufacture Year:", value=None, placeholder="Type a number..."))
 st.write("You chose:", manufacture_year)
 
 # Annual_car_mileage
-annual_car_mileage = st.number_input(
-    "Annual Car Mileage:", st.write("You chose:", car_make))
+annual_car_mileage = int(st.number_input(
+    "Annual Car Mileage:", st.write("You chose:", car_make)))
 st.write("You chose:", annual_car_mileage)
 
 # Number of accidents
-number_of_accidents = st.number_input(
-    "Number of Accidents:", value=None, placeholder="Type a number...", min_value=0, max_value=10)
+number_of_accidents = int(st.number_input(
+    "Number of Accidents:", value=None, placeholder="Type a number...", min_value=0, max_value=10, step=1))
 st.write("You chose:", number_of_accidents)
 
 # Number of claims
-number_of_claims = st.number_input(
-    "Number of Claims:", value=None, placeholder="Type a number...",  min_value=0, max_value=10)
+number_of_claims = int(st.number_input(
+    "Number of Claims:", value=None, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
 st.write("You chose:", number_of_claims)
 
 # Car_value
@@ -98,10 +111,53 @@ tracking_device = st.radio(
 st.write("You chose:", tracking_device)
 
 # Policy_term
-policy_term = st.selectbox("Policy_Term", ["6", "12"])
+policy_term = st.selectbox("Policy_Term", [6, 12, 24])
 st.write("You chose:", policy_term)
 
 # Credit Score
-credit_score = st.number_input(
-    "Credit Score", value=None, placeholder="Enter your credit score...",  min_value=300, max_value=850)
+credit_score = int(st.number_input(
+    "Credit Score", value=None, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
 st.write("You chose:", credit_score)
+
+# Define the credit category based on the credit score given:
+
+
+def categorize_credit_score(credit_score):
+    if credit_score < 580:
+        return "Poor"
+    elif 580 <= credit_score < 670:
+        return "Fair"
+    elif 670 <= credit_score < 740:
+        return "Good"
+    elif 740 <= credit_score < 800:
+        return "Very Good"
+    else:
+        return "Excellent"
+
+
+credit_category = categorize_credit_score(credit_score)
+st.write("Credit Category:", credit_category)
+
+input_dictionary = {
+    "Age": age,
+    "Gender": gender,
+    "Region": province,
+    "Employment_Status": employment_status,
+    "Education_Level": education_level,
+    "Years_Driving": years_driving,
+    "Car_Make": car_make,
+    "Car_Model": car_model,
+    "Manufacture_Year": manufacture_year,
+    "Annual_Mileage": annual_car_mileage,
+    "Number_of_Accidents": number_of_accidents,
+    "Number_of_Claims": number_of_claims,
+    "Car_Value": car_value,
+    "Marital_Status": marital_status,
+    "Has_AntiTheft_Device": tracking_device,
+    "Policy_Term": policy_term,
+    "Credit_Score": credit_score,
+    "Vehicle_Usage": vehicle_usage,
+    "Credit_Category": credit_category
+}
+
+input_df = pd.DataFrame([input_dictionary])
