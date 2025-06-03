@@ -1,7 +1,13 @@
-import streamlit as st
+import os
+import sys
+
 import joblib
-import numpy as np
 import pandas as pd
+
+import streamlit as st
+from src.features import preprocess_features
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Paths to the model and scaler
 model_path = ("../models/ridge_model.joblib")
@@ -162,3 +168,10 @@ input_dictionary = {
 }
 
 input_df = pd.DataFrame([input_dictionary])
+
+input_df = preprocess_features(input_df)
+input_df = scaler.transform(input_df)
+prediction = model.predict(input_df)
+st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
+
+st.button("Get your premium", type="primary")
