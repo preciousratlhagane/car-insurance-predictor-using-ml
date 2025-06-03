@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 # Paths to the model and scaler
-model_path = ("../models")
-scaler_path = ("../models")
+model_path = ("../models/ridge_model.joblib")
+scaler_path = ("../models/scaler.joblib")
 
 # Load model and scaler
 model = joblib.load(model_path)
