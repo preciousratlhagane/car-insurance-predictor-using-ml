@@ -86,7 +86,7 @@ st.write("You chose:", manufacture_year)
 
 # Annual_car_mileage
 annual_car_mileage = int(st.number_input(
-    "Annual Car Mileage:", st.write("You chose:", car_make)))
+    "Annual Car Mileage:", value=10000, min_value=0, max_value=500000))
 st.write("You chose:", annual_car_mileage)
 
 # Number of accidents
