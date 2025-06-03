@@ -80,7 +80,8 @@ st.write("You chose:", vehicle_usage)
 
 # Manufacture_year
 manufacture_year = int(st.number_input(
-    "Car Manufacture Year:", value=None, placeholder="Type a number..."))
+    "Car Manufacture Year:", value=2015, placeholder="Type a number...", min_value=1980, max_value=2025, step=1
+))
 st.write("You chose:", manufacture_year)
 
 # Annual_car_mileage
@@ -90,17 +91,17 @@ st.write("You chose:", annual_car_mileage)
 
 # Number of accidents
 number_of_accidents = int(st.number_input(
-    "Number of Accidents:", value=None, placeholder="Type a number...", min_value=0, max_value=10, step=1))
+    "Number of Accidents:", value=1, placeholder="Type a number...", min_value=0, max_value=10, step=1))
 st.write("You chose:", number_of_accidents)
 
 # Number of claims
 number_of_claims = int(st.number_input(
-    "Number of Claims:", value=None, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
+    "Number of Claims:", value=1, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
 st.write("You chose:", number_of_claims)
 
 # Car_value
 car_value = st.number_input("Car Value in Rands:",
-                            value=None, placeholder="Type a number...")
+                            value=50000, placeholder="Type a number...")
 st.write("You chose:", car_value)
 
 # Tracking_device
@@ -116,7 +117,7 @@ st.write("You chose:", policy_term)
 
 # Credit Score
 credit_score = int(st.number_input(
-    "Credit Score", value=None, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
+    "Credit Score", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
 st.write("You chose:", credit_score)
 
 # Define the credit category based on the credit score given:
