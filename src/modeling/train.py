@@ -19,6 +19,7 @@ df = pd.read_csv("../data/processed/cleaned_data.csv")
 
 # Preprocess the features
 df_processed = preprocess_features(df)
+df_processed.columns
 
 # Define target variable and the features
 X = df_processed.drop(columns=['Premium_Amount'])
@@ -27,27 +28,26 @@ y = df_processed['Premium_Amount']
 # Split into training and test sets
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42)
-
+X_train.columns
 
 # Isolate the numeric features to scale them only
-numeric_columns = X_train.select_dtypes(include=['float64', 'int64']).columns
-ohe_col = [col for col in numeric_columns if col != 'Premium_Amount']
+all_numeric_columns = X_train.select_dtypes(include='number')
+columns_to_scale = all_numeric_columns.loc[:,
+                                           all_numeric_columns.dtypes != 'uint8'].columns
 
-X_train_numeric = X_train[numeric_columns]
-X_train_ohe = X_train[ohe_col]
-
-X_test_numeric = X_test[numeric_columns]
-X_test_ohe = X_test[ohe_col]
-
+columns_to_leave_as = [
+    col for col in X_train.columns if col not in columns_to_scale]
 
 # Scale only the numeric columns based on the training data
 scaler = StandardScaler()
-X_train_numeric_scaled = scaler.fit_transform(X_train_numeric)
-X_test_numeric_scaled = scaler.transform(X_test_numeric)
+X_train_scaled_part = scaler.fit_transform(X_train[columns_to_scale])
+X_test_scaled_part = scaler.transform(X_test[columns_to_scale])
 
 # Combine the numeric columns with the non-numeric columns
-X_train_scaled = np.hstack([X_train_numeric_scaled, X_train_ohe.values])
-X_test_scaled = np.hstack([X_test_numeric_scaled, X_test_ohe.values])
+X_train_scaled = np.hstack(
+    [X_train_scaled_part, X_train[columns_to_leave_as].values])
+X_test_scaled = np.hstack(
+    [X_test_scaled_part, X_test[columns_to_leave_as].values])
 
 # Define the models and their respective parameters
 models = {
@@ -121,6 +121,6 @@ for model_name, results in model_results.items():
 
 # Save the fitted scaler
 scaler_file = os.path.join(save_dir, "scaler.joblib")
-joblib.dump((scaler, numeric_columns.tolist()), scaler_file)
+joblib.dump((scaler, columns_to_scale.tolist()), scaler_file)
 
 print(os.getcwd())
