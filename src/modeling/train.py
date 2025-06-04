@@ -123,4 +123,7 @@ for model_name, results in model_results.items():
 scaler_file = os.path.join(save_dir, "scaler.joblib")
 joblib.dump((scaler, columns_to_scale.tolist()), scaler_file)
 
-print(os.getcwd())
+# Save the model features
+model_features = list(X_train.columns)
+features_file = os.path.join(save_dir, "model_features.joblib")
+joblib.dump(model_features, features_file)
