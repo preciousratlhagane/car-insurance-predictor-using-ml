@@ -181,13 +181,24 @@ input_dictionary = {
 
 if st.button("Get your premium", type="primary"):
     input_df = pd.DataFrame([input_dictionary])
+    st.write("Input_df:", input_df.columns)
+    st.write("Input_df_shape:", input_df.shape)
+
     input_df_processed = preprocess_features(input_df)
+    st.write("Input_df_processed", input_df_processed.columns)
+    st.write("Input_df_processed_shape", input_df_processed.shape)
+
     for col in model_features:
         if col not in input_df_processed.columns:
             input_df_processed[col] = 0
     input_df_processed = input_df_processed[model_features]
     input_df_processed.loc[:, numeric_columns] = scaler.transform(
         input_df_processed[numeric_columns])
-    st.write("Processed Input", input_df_processed)
+    st.write("Processed Input", input_df_processed.columns)
+    st.write("Processed input shape", input_df_processed.shape)
+
+    a = input_df_processed
+    st.write("Final_processed_a", a.columns)
     prediction = model.predict(input_df_processed)
+    st.write("Model features:", model_features.columns)
     st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
