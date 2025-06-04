@@ -16,7 +16,7 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     df['Claims_per_Year'] = df['Claims_per_Year'].fillna(0)
 
     # Drop only non-useful columns
-    df.drop(columns=["Customer_ID"], inplace=True)
+    df.drop(columns=["Customer_ID"], inplace=True, errors="ignore")
 
     # One hot-encode categorical features
     categorical_cols = df.select_dtypes(include=object).columns
