@@ -1,13 +1,8 @@
-import os
-import sys
-
 import joblib
 import pandas as pd
 
 import streamlit as st
 from src.features import preprocess_features
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Paths to the model and scaler
 model_path = ("../models/ridge_model.joblib")
