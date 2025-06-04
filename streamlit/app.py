@@ -1,12 +1,14 @@
-import joblib
-import pandas as pd
-from dotenv import load_dotenv
-
+# Load environment variables first
 import streamlit as st
-from src.features import preprocess_features
+import pandas as pd
+import joblib
 
-# Load variables from .env
+# Load environment variables
+from dotenv import load_dotenv
 load_dotenv()
+
+# Load the function
+from src.features import preprocess_features  # noqa: E402
 
 # Paths to the model and scaler
 model_path = ("../models/ridge_model.joblib")
