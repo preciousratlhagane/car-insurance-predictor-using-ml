@@ -23,7 +23,7 @@ scaler_path = ("../models/scaler.joblib")
 
 # Load model and scaler
 model = joblib.load(model_path)
-scaler = joblib.load(scaler_path)
+scaler, numeric_columns = joblib.load(scaler_path)
 
 st.header("Demographic information")
 
@@ -175,11 +175,12 @@ input_dictionary = {
     "Credit_Category": credit_category
 }
 
-input_df = pd.DataFrame([input_dictionary])
 
-input_df = preprocess_features(input_df)
-input_df = scaler.transform(input_df)
-prediction = model.predict(input_df)
-st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
+if st.button("Get your premium", type="primary"):
+    input_df = pd.DataFrame([input_dictionary])
+    input_df_processed = preprocess_features(input_df)
+    input_df_processed.loc[:, numeric_columns] = scaler.transform(
+        input_df_processed[numeric_columns])
 
-st.button("Get your premium", type="primary")
+    prediction = model.predict(input_df_processed)
+    st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
