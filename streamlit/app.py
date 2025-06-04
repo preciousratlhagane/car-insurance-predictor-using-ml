@@ -20,10 +20,12 @@ from src.features import preprocess_features  # noqa: E402
 # Paths to the model and scaler
 model_path = ("../models/ridge_model.joblib")
 scaler_path = ("../models/scaler.joblib")
+model_features_path = ("../models/model_features.joblib")
 
 # Load model and scaler
 model = joblib.load(model_path)
 scaler, numeric_columns = joblib.load(scaler_path)
+model_features = joblib.load(model_features_path)
 
 st.header("Demographic information")
 
@@ -124,6 +126,7 @@ tracking_device = st.radio(
     ["Yes", "No"]
 )
 st.write("You chose:", tracking_device)
+tracking_device_encoded = 1 if tracking_device == "Yes" else 0
 
 # Policy_term
 policy_term = st.selectbox("Policy_Term", [6, 12, 24])
@@ -168,7 +171,7 @@ input_dictionary = {
     "Number_of_Claims": number_of_claims,
     "Car_Value": car_value,
     "Marital_Status": marital_status,
-    "Has_AntiTheft_Device": tracking_device,
+    "Has_AntiTheft_Device": tracking_device_encoded,
     "Policy_Term": policy_term,
     "Credit_Score": credit_score,
     "Vehicle_Usage": vehicle_usage,
@@ -179,8 +182,12 @@ input_dictionary = {
 if st.button("Get your premium", type="primary"):
     input_df = pd.DataFrame([input_dictionary])
     input_df_processed = preprocess_features(input_df)
+    for col in model_features:
+        if col not in input_df_processed.columns:
+            input_df_processed[col] = 0
+    input_df_processed = input_df_processed[model_features]
     input_df_processed.loc[:, numeric_columns] = scaler.transform(
         input_df_processed[numeric_columns])
-
+    st.write("Processed Input", input_df_processed)
     prediction = model.predict(input_df_processed)
     st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
