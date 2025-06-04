@@ -1,11 +1,18 @@
 # Load environment variables first
+import os
+import sys
 import streamlit as st
-import pandas as pd
 import joblib
+import pandas as pd
+from dotenv import load_dotenv
 
 # Load environment variables
-from dotenv import load_dotenv
 load_dotenv()
+
+# Ensure project root is in Python path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+if project_root not in sys.path:
+    sys.path.append(project_root)
 
 # Load the function
 from src.features import preprocess_features  # noqa: E402
