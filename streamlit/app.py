@@ -183,32 +183,30 @@ input_dictionary = {
     "Credit_Category": credit_category
 }
 
+col1, col2, col3 = st.columns([1, 2, 1])
 
-if st.button("Get your premium", type="primary"):
-    with st.spinner("Calculating premium..."):
-        time.sleep(1)
+with col2:
+    if st.button("Get your premium", type="primary"):
+        with st.spinner("Calculating premium..."):
+            time.sleep(1)
 
-        # Process input
-        input_df = pd.DataFrame([input_dictionary])
-        input_df_processed = preprocess_features(input_df)
+            # Process input
+            input_df = pd.DataFrame([input_dictionary])
+            input_df_processed = preprocess_features(input_df)
 
-        # Ensure all required columns needed by the model are present
-        for col in model_features:
-            if col not in input_df_processed.columns:
-                input_df_processed[col] = 0
+            # Ensure all required columns needed by the model are present
+            for col in model_features:
+                if col not in input_df_processed.columns:
+                    input_df_processed[col] = 0
 
-        input_df_processed = input_df_processed[model_features]
+            input_df_processed = input_df_processed[model_features]
 
-        # Scale the numeric features
-        input_df_processed.loc[:, numeric_columns] = scaler.transform(
-            input_df_processed[numeric_columns])
+            # Scale the numeric features
+            input_df_processed[numeric_columns] = scaler.transform(
+                input_df[numeric_columns]).astype('float64')
 
-        # Predict
-        prediction = model.predict(input_df_processed)
+            # Predict
+            prediction = model.predict(input_df_processed)
 
-    # Show estimated premium amount
-    st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
-
-    # Add button to rerun the app if necessary
-    if st.button("Rerun"):
-        st.experimental_rerun()
+        # Show estimated premium amount
+        st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
