@@ -1,10 +1,13 @@
 # Load environment variables first
 import os
 import sys
-import streamlit as st
+import time
+
 import joblib
 import pandas as pd
 from dotenv import load_dotenv
+
+import streamlit as st
 
 # Load environment variables
 load_dotenv()
@@ -27,6 +30,8 @@ model = joblib.load(model_path)
 scaler, numeric_columns = joblib.load(scaler_path)
 model_features = joblib.load(model_features_path)
 
+st.set_page_config(page_title="Car Insurance Premium Predictor", page_icon="🚗")
+
 st.header("Demographic information")
 
 # Enter your age
@@ -46,7 +51,7 @@ marital_status = st.selectbox(
 st.write("You chose:", marital_status)
 
 # Province
-province = st.selectbox("Province", ["Free State", "Limpopp", "Gauteng", "Mpumalanga",
+province = st.selectbox("Province", ["Free State", "Limpopo", "Gauteng", "Mpumalanga",
                         "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape"])
 st.write("You selected:", province)
 
@@ -116,8 +121,8 @@ number_of_claims = int(st.number_input(
 st.write("You chose:", number_of_claims)
 
 # Car_value
-car_value = st.number_input("Car Value in Rands:",
-                            value=50000, placeholder="Type a number...")
+car_value = st.number_input("Car Value (R):",
+                            value=50000, placeholder="Type a number...", help="Enter the current value of your car in South African Rands (ZAR)")
 st.write("You chose:", car_value)
 
 # Tracking_device
@@ -180,16 +185,30 @@ input_dictionary = {
 
 
 if st.button("Get your premium", type="primary"):
-    input_df = pd.DataFrame([input_dictionary])
+    with st.spinner("Calculating premium..."):
+        time.sleep(1)
 
-    input_df_processed = preprocess_features(input_df)
+        # Process input
+        input_df = pd.DataFrame([input_dictionary])
+        input_df_processed = preprocess_features(input_df)
 
-    for col in model_features:
-        if col not in input_df_processed.columns:
-            input_df_processed[col] = 0
-    input_df_processed = input_df_processed[model_features]
-    input_df_processed.loc[:, numeric_columns] = scaler.transform(
-        input_df_processed[numeric_columns])
+        # Ensure all required columns needed by the model are present
+        for col in model_features:
+            if col not in input_df_processed.columns:
+                input_df_processed[col] = 0
 
-    prediction = model.predict(input_df_processed)
+        input_df_processed = input_df_processed[model_features]
+
+        # Scale the numeric features
+        input_df_processed.loc[:, numeric_columns] = scaler.transform(
+            input_df_processed[numeric_columns])
+
+        # Predict
+        prediction = model.predict(input_df_processed)
+
+    # Show estimated premium amount
     st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
+
+    # Add button to rerun the app if necessary
+    if st.button("Rerun"):
+        st.experimental_rerun()
