@@ -1,26 +1,31 @@
 # Improving Car Insurance Premium Pricing through Predictive Modelling
 
 ## 🗞️ Table of Contents
-* Introduction
-* Dataset
-* Project Structure
-* Installation
-* Usage 
-* Results 
-* Technologies Used
-* Future Improvements
+* [Introduction](#introduction)
+* [Dataset](#dataset)
+* [Project Structure](#project-structure)
+* [Installation](#️installation)
+* [App Deployment](#app-deployment)
+* [Results](#results)
+* [Technologies Used](#technologies-used)
+* [Future Improvements](#future-improvements)
+* [License](#license)
 
-## 💭 Introduction
+## 💭 Introduction<a class="anchor" id="introduction"></a>
 A small South African insurance provider wants to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments, often leading to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
-## 📔 Dataset
+## 📔 Dataset<a class="anchor" id="dataset"></a>
 > **Note**: The dataset used in this project was generated with the assistance of ChatGPT to simulate realistic datasets. The techniques and models used here are relevant and can be used with real-world data. 
 
-- Number of records: 15000 rows
-- Features: Age, Employment status, Credit score, Number of accidents, Number of claims, and vehicle information such as make, year, and mileage
+- **Number of records:** 15000 customers
+- **Key Features:** 
+    - Customer demographics: Age, Employment Status, Credit Score, Marital Status
+    - Driving history: Number of Accidents, Number of Claims, Years Driving
+    - Vehicle information: Make, Model, Manufacture Year, Annual Mileage, Anti-Theft Device
+    - Policy information: Policy Term, Vehicle Usage, Credit Category
 
 
-## 🗃️ Project Organization
+## 🗃️ Project Structure <a class="anchor" id="project-structure"></a>
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
@@ -68,7 +73,7 @@ A small South African insurance provider wants to improve how it sets insurance 
 ```
 
 --------
-## ⚙️ Installation
+## ⚙️ Installation <a class="anchor" id="installation"></a>
 
 ```bash
 # Clone the repository
@@ -83,7 +88,7 @@ source env/bin/activate # On Windows use: env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## ⌨️ App Deployment
+## ⌨️ App Deployment <a class="anchor" id="app-deployment"></a>
 
 An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model. 
 
@@ -106,20 +111,23 @@ A live version of the app is hosted at: *app_link*
 
 ### 🖥️ App Preview
 
-## Results
+## Results <a class="anchor" id="results"></a>
 The best-performing model was **Ridge model**, achieving:
-- MAE:
-- RMSE: 
-- R² Score: 
+- MAE: 15,72
+- RMSE: 20,35
+- R² Score: 0,99
 
-## Technologies Used
+> **Note**: The unusually high R² scpre is largely due to the fact that the premiums in the original data were determined using a predefined formula based on the numerical input features. This means that the model is essentially learning to approximate that formula with the addition of categorical features. In a real-world scenario with more variability and noise, performance metrics are expected to be lower but still remain a good indication of predictive power. 
+
+## Technologies Used <a class="anchor" id="technologies-used"></a>
 ![Seaborn](https://img.shields.io/badge/Seaborn-4c72b0?style=for-the-badge&logo=python&logoColor=white)![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
 
-## 🧪 Future Improvements
-- Hyperparameter tuning with GridSearchCV or Optuna
-- Integrate real-world datasets(e.g Kaggle, Google Dataset Search, public APIs)
+## 🧪 Future Improvements <a class="anchor" id="future-improvements"></a>
+- Perform hyperparameter tuning with GridSearchCV or Optuna to improve model accuracy
+- Integrate real-world datasets(e.g Kaggle, Google Dataset Search, public APIs) to enhance data diversity and quality. 
+- Implement user authentication and persistent user history in the Streamlit application
 
-## 📜 License
+## 📜 License <a class="anchor" id="license"></a>
 This project is for educational and demonstration purposes only. You can use, modify, and build upon it.
 
 
