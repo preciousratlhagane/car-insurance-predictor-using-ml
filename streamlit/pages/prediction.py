@@ -12,16 +12,15 @@ import streamlit as st
 # Load environment variables
 load_dotenv()
 
-# Ensure project root is in Python path
-current_file = os.path.abspath(__file__)
+# Get the absolute path to the project root (two levels up from this file)
 project_root = os.path.abspath(os.path.join(
-    current_file, "..", ".."))
+    os.path.dirname(__file__), "..", ".."))
 
-# Add project root to sys.path if not already included
+# Add the project root directory to sys.path
 if project_root not in sys.path:
-    sys.path.append(project_root)
+    sys.path.insert(0, project_root)
 
-# Load the function
+# Now import your function from src.features
 from src.features import preprocess_features  # noqa: E402
 
 # Paths to the model and scaler
@@ -44,23 +43,23 @@ age = int(st.number_input(
 ))
 
 # Enter your gender
-gender = st.selectbox("Gender", ["Male", "Female"])
+gender = st.selectbox("Gender", ["Female", "Male"])
 
 # Marital_Status
 marital_status = st.selectbox(
-    "Marital_status", ["Widowed", "Single", "Married", "Divorced"])
+    "Marital_status", ["Divorced", "Married", "Single", "Widowed"])
 
 # Province
-province = st.selectbox("Province", ["Free State", "Limpopo", "Gauteng", "Mpumalanga",
-                        "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape"])
+province = st.selectbox("Province", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo" "Mpumalanga",
+                                     "North West",  "Nothern Cape", "Western Cape"])
 
 # Education Level
 education_level = st.selectbox(
-    "Education_level", ["High School", "Diploma", "Degree", "Postgraduate"])
+    "Education_level", ["Degree", "Diploma", "High School", "Postgraduate"])
 
 # Employment status
 employment_status = st.selectbox("Employment_status", [
-                                 "Self-employed", "Employed", "Retired", "Unemployed", "Student"])
+    "Employed", "Retired", "Self-employed", "Student", "Unemployed"])
 
 # Years_driving
 max_years_driving = age - 18
@@ -76,12 +75,12 @@ st.header("Vehicle information")
 
 # Dictionary to map car makes to their models
 car_make_models = {
-    "Ford": ["Fiesta", "EcoSport", "Ranger"],
-    "BMW": ["X5", "320i", "118i"],
-    "Hyundai": ["Tucson", "Creta", "i20"],
-    "Toyota": ["Hilux", "Corolla", "Fortuner"],
-    "Mercedes": ["A200", "GLA", "C200"],
-    "Volkswagen": ["Golf", "Tiguan", "Polo"]
+    "BMW": ["118i", "320i", "X5"],
+    "Ford": ["EcoSport", "Fiesta", "Ranger"],
+    "Hyundai": ["Creta", "i20", "Tucson"],
+    "Mercedes": ["A200",  "C200", "GLA"],
+    "Toyota": ["Corolla", "Fortuner", "Hilux"],
+    "Volkswagen": ["Golf", "Polo", "Tiguan"]
 }
 
 # Car Make
@@ -92,7 +91,7 @@ car_model = st.selectbox("Car Model", car_make_models[car_make])
 
 # Vehicle_usage
 vehicle_usage = st.selectbox(
-    "Vehicle_usage", ["Commercial", "Business", "Private"])
+    "Vehicle_usage", ["Business", "Commercial", "Private"])
 
 # Manufacture_year
 manufacture_year = int(st.number_input(
@@ -118,7 +117,7 @@ car_value = st.number_input("Car Value (R):",
 # Tracking_device
 tracking_device = st.radio(
     "Do you have a tracking device installed?",
-    ["Yes", "No"]
+    ["No", "Yes"]
 )
 tracking_device_encoded = 1 if tracking_device == "Yes" else 0
 
