@@ -39,21 +39,16 @@ age = int(st.number_input(
     "Enter your age", value=20, placeholder="Type a number...", min_value=18, max_value=100
 ))
 
-st.write("The current age is", age)
-
 # Enter your gender
 gender = st.selectbox("Gender", ["Male", "Female"])
-st.write("You selected:", gender)
 
 # Marital_Status
 marital_status = st.selectbox(
     "Marital_status", ["Widowed", "Single", "Married", "Divorced"])
-st.write("You chose:", marital_status)
 
 # Province
 province = st.selectbox("Province", ["Free State", "Limpopo", "Gauteng", "Mpumalanga",
                         "Nothern Cape", "KwaZulu-Natal", "Western Cape", "North West", "Eastern Cape"])
-st.write("You selected:", province)
 
 # Education Level
 education_level = st.selectbox(
@@ -72,7 +67,6 @@ else:
     years_driving = 0
     st.warning(
         "You are not eligible to drive yet. Driving experience is set to 0.")
-st.write("You chose:", years_driving)
 
 st.header("Vehicle information")
 
@@ -88,59 +82,48 @@ car_make_models = {
 
 # Car Make
 car_make = st.selectbox("Car Make", list(car_make_models.keys()))
-st.write("You chose car make:", car_make)
 
 # Car_Model
 car_model = st.selectbox("Car Model", car_make_models[car_make])
-st.write("You chose car model:", car_model)
 
 # Vehicle_usage
 vehicle_usage = st.selectbox(
     "Vehicle_usage", ["Commercial", "Business", "Private"])
-st.write("You chose:", vehicle_usage)
 
 # Manufacture_year
 manufacture_year = int(st.number_input(
     "Car Manufacture Year:", value=2015, placeholder="Type a number...", min_value=1980, max_value=2025, step=1
 ))
-st.write("You chose:", manufacture_year)
 
 # Annual_car_mileage
 annual_car_mileage = int(st.number_input(
     "Annual Car Mileage:", value=10000, min_value=0, max_value=500000))
-st.write("You chose:", annual_car_mileage)
 
 # Number of accidents
 number_of_accidents = int(st.number_input(
     "Number of Accidents:", value=1, placeholder="Type a number...", min_value=0, max_value=10, step=1))
-st.write("You chose:", number_of_accidents)
 
 # Number of claims
 number_of_claims = int(st.number_input(
     "Number of Claims:", value=1, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
-st.write("You chose:", number_of_claims)
 
 # Car_value
 car_value = st.number_input("Car Value (R):",
                             value=50000, placeholder="Type a number...", help="Enter the current value of your car in South African Rands (ZAR)")
-st.write("You chose:", car_value)
 
 # Tracking_device
 tracking_device = st.radio(
     "Do you have a tracking device installed?",
     ["Yes", "No"]
 )
-st.write("You chose:", tracking_device)
 tracking_device_encoded = 1 if tracking_device == "Yes" else 0
 
 # Policy_term
 policy_term = st.selectbox("Policy_Term", [6, 12, 24])
-st.write("You chose:", policy_term)
 
 # Credit Score
 credit_score = int(st.number_input(
     "Credit Score", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
-st.write("You chose:", credit_score)
 
 # Define the credit category based on the credit score given:
 
@@ -159,7 +142,6 @@ def categorize_credit_score(credit_score):
 
 
 credit_category = categorize_credit_score(credit_score)
-st.write("Credit Category:", credit_category)
 
 input_dictionary = {
     "Age": age,
@@ -183,30 +165,37 @@ input_dictionary = {
     "Credit_Category": credit_category
 }
 
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2, col3 = st.columns([3.4, 2, 3.4])
 
 with col2:
-    if st.button("Get your premium", type="primary"):
-        with st.spinner("Calculating premium..."):
-            time.sleep(1)
+    pressed = st.button("Get your premium", type="primary")
 
-            # Process input
-            input_df = pd.DataFrame([input_dictionary])
-            input_df_processed = preprocess_features(input_df)
+if pressed:
+    with st.spinner("Calculating premium..."):
+        time.sleep(1)
 
-            # Ensure all required columns needed by the model are present
-            for col in model_features:
-                if col not in input_df_processed.columns:
-                    input_df_processed[col] = 0
+        # Process input
+        input_df = pd.DataFrame([input_dictionary])
+        input_df_processed = preprocess_features(input_df)
 
-            input_df_processed = input_df_processed[model_features]
+        # Ensure all required columns are present
+        for col in model_features:
+            if col not in input_df_processed.columns:
+                input_df_processed[col] = 0
 
-            # Scale the numeric features
-            input_df_processed[numeric_columns] = scaler.transform(
-                input_df[numeric_columns]).astype('float64')
+        input_df_processed = input_df_processed[model_features]
 
-            # Predict
-            prediction = model.predict(input_df_processed)
+        # Make sure numeric columns exist before scaling
+        missing_numeric_cols = [
+            col for col in numeric_columns if col not in input_df_processed.columns]
+        for col in missing_numeric_cols:
+            input_df_processed[col] = 0.0
 
-        # Show estimated premium amount
-        st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
+        input_df_processed[numeric_columns] = scaler.transform(
+            input_df_processed[numeric_columns]).astype('float64')
+
+        # Predict
+        prediction = model.predict(input_df_processed)
+
+    # Display success message **outside** columns block, so it will be left aligned
+    st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
