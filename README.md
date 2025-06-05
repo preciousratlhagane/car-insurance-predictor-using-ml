@@ -1,4 +1,4 @@
-# Improving Car Insurance Premium Pricing through Predictive Modelling
+# Improving Car Insurance Premium Accuracy with Predictive Analytics
 
 ## 🗞️ Table of Contents
 * [Introduction](#introduction)
@@ -131,7 +131,7 @@ The best-performing model was **Ridge model**, achieving:
 - RMSE: 20,35
 - R² Score: 0,99
 
-> **Note**: The unusually high R² scpre is largely due to the fact that the premiums in the original data were determined using a predefined formula based on the numerical input features. This means that the model is essentially learning to approximate that formula with the addition of categorical features. In a real-world scenario with more variability and noise, performance metrics are expected to be lower but still remain a good indication of predictive power. 
+> **Note**: The unusually high R² score is largely because the premiums in the original dataset were determined using a predefined formula based on the numerical input features. This means the model is essentially learning to approximate that formula by adding categorical features. In a real-world scenario with more variability and noise, performance metrics are expected to be lower but remain a good indication of predictive power. 
 
 
 --------
