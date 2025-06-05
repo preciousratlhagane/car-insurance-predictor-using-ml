@@ -13,7 +13,11 @@ import streamlit as st
 load_dotenv()
 
 # Ensure project root is in Python path
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+current_file = os.path.abspath(__file__)
+project_root = os.path.abspath(os.path.join(
+    current_file, "..", ".."))
+
+# Add project root to sys.path if not already included
 if project_root not in sys.path:
     sys.path.append(project_root)
 
