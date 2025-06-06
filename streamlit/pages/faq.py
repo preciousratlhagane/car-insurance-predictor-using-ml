@@ -1,5 +1,6 @@
 import streamlit as st
 
+st.set_page_config(page_title="FAQs", page_icon="❓")
 st.title("❓ Frequently Asked Questions")
 
 with st.expander("🔍 What is this app for?"):
