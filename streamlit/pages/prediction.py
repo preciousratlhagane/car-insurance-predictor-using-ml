@@ -20,7 +20,6 @@ project_root = os.path.abspath(os.path.join(
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# Now import your function from src.features
 from src.features import preprocess_features  # noqa: E402
 
 # Paths to the model and scaler
@@ -49,18 +48,18 @@ gender = st.selectbox("Gender", ["Female", "Male"])
 
 # Marital_Status
 marital_status = st.selectbox(
-    "Marital_status", ["Divorced", "Married", "Single", "Widowed"])
+    "What is your current marital status?", ["Divorced", "Married", "Single", "Widowed"])
 
 # Province
-province = st.selectbox("Province", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo" "Mpumalanga",
-                                     "North West",  "Nothern Cape", "Western Cape"])
+province = st.selectbox("Select the province you currently reside in:", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo" "Mpumalanga",
+                                                                         "North West",  "Nothern Cape", "Western Cape"])
 
 # Education Level
 education_level = st.selectbox(
-    "Education_level", ["Degree", "Diploma", "High School", "Postgraduate"])
+    "What is your highest level of education", ["Degree", "Diploma", "High School", "Postgraduate"])
 
 # Employment status
-employment_status = st.selectbox("Employment_status", [
+employment_status = st.selectbox("What is your current employment status?", [
     "Employed", "Retired", "Self-employed", "Student", "Unemployed"])
 
 # Years_driving
@@ -86,34 +85,35 @@ car_make_models = {
 }
 
 # Car Make
-car_make = st.selectbox("Car Make", list(car_make_models.keys()))
+car_make = st.selectbox("Select the make of your car:",
+                        list(car_make_models.keys()))
 
 # Car_Model
-car_model = st.selectbox("Car Model", car_make_models[car_make])
+car_model = st.selectbox("Select your car model:", car_make_models[car_make])
 
 # Vehicle_usage
 vehicle_usage = st.selectbox(
-    "Vehicle_usage", ["Business", "Commercial", "Private"])
+    "For what purposes do you use your car?", ["Business", "Commercial", "Private"])
 
 # Manufacture_year
 manufacture_year = int(st.number_input(
-    "Car Manufacture Year:", value=2015, placeholder="Type a number...", min_value=1980, max_value=2025, step=1
+    "What is the manufacture year of your car?", value=2015, placeholder="Type a number...", min_value=1980, max_value=2025, step=1
 ))
 
 # Annual_car_mileage
 annual_car_mileage = int(st.number_input(
-    "Annual Car Mileage:", value=10000, min_value=0, max_value=500000))
+    "Enter the annual car mileage:", value=10000, min_value=0, max_value=500000))
 
 # Number of accidents
 number_of_accidents = int(st.number_input(
-    "Number of Accidents:", value=1, placeholder="Type a number...", min_value=0, max_value=10, step=1))
+    "How many accidents has your car been involved in?", value=1, placeholder="Type a number...", min_value=0, max_value=10, step=1))
 
 # Number of claims
 number_of_claims = int(st.number_input(
-    "Number of Claims:", value=1, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
+    "How many claims have you filed in relation to your car?", value=1, placeholder="Type a number...",  min_value=0, max_value=10, step=1))
 
 # Car_value
-car_value = st.number_input("Car Value (R):",
+car_value = st.number_input("Car Value (ZAR):",
                             value=50000, placeholder="Type a number...", help="Enter the current value of your car in South African Rands (ZAR)")
 
 # Tracking_device
@@ -124,11 +124,12 @@ tracking_device = st.radio(
 tracking_device_encoded = 1 if tracking_device == "Yes" else 0
 
 # Policy_term
-policy_term = st.selectbox("Policy_Term", [6, 12, 24])
+policy_term = st.selectbox(
+    "Select your desired policy term in months", [6, 12, 24])
 
 # Credit Score
 credit_score = int(st.number_input(
-    "Credit Score", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
+    "Enter your credit score", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
 
 # Define the credit category based on the credit score given:
 
