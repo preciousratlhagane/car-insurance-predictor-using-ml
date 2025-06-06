@@ -201,7 +201,7 @@ if pressed:
             input_df_processed[numeric_columns]).astype('float64')
 
         # Predict
-        prediction = model.predict(input_df_processed)
+        prediction = model.predict(input_df_processed.values)
 
     # Display success message **outside** columns block, so it will be left aligned
     st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f} per month")
