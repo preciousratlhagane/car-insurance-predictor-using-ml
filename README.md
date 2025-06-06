@@ -36,7 +36,13 @@ A small South African insurance provider wants to improve how it sets insurance 
 ├── LICENSE            <- Open-source license if one is chosen
 ├── README.md          <- The top-level README for developers using this project
 ├── streamlit
-│   └── app.py
+│   ├── Home.py             
+│   └── pages  
+│       ├── About.py
+│       ├── Coverage.py
+│       ├── FAQs.py
+│       └── Prediction.py    
+│
 ├── assets             <- Contains images and visual assets for documentation/app
 ├── data
 │   ├── processed      <- The final, canonical data sets for modelling
@@ -48,10 +54,6 @@ A small South African insurance provider wants to improve how it sets insurance 
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
 │
 ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
 │                         Generated with `pip freeze > requirements.txt`
@@ -67,14 +69,10 @@ A small South African insurance provider wants to improve how it sets insurance 
     ├── features.py             <- Code to create features for modelling
     │
     │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
+    └── modeling                
+        ├── __init__.py 
+        ├── predict.py          <- Code to run model inference with trained models          
+        └── train.py            <- Code to train models
 ```
 
 --------
@@ -147,6 +145,8 @@ The best-performing model was **Ridge model**, achieving:
 
 --------
 ## 📜 License <a class="anchor" id="license"></a>
-This project is for educational and demonstration purposes only. You can use, modify, and build upon it.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+> For educational and demonstration purposes. Data and visuals are not intended for commercial use.
 
 
