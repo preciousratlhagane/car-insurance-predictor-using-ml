@@ -22,7 +22,7 @@ This prototype was developed by a data science intern as part of a predictive an
 - Implement user authentication and persistent user history
 
 ### 📩 Contact
-Feel free to connect on [LinkedIn]https://www.linkedin.com/in/preciousratlhagane)
+Feel free to connect on [LinkedIn](https://www.linkedin.com/in/preciousratlhagane)
 
 ---
 
