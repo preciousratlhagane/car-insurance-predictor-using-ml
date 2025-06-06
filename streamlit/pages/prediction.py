@@ -56,7 +56,7 @@ province = st.selectbox("Select the province you currently reside in:", ["Easter
 
 # Education Level
 education_level = st.selectbox(
-    "What is your highest level of education", ["Degree", "Diploma", "High School", "Postgraduate"])
+    "What is your highest level of education?", ["Degree", "Diploma", "High School", "Postgraduate"])
 
 # Employment status
 employment_status = st.selectbox("What is your current employment status?", [
@@ -125,7 +125,7 @@ tracking_device_encoded = 1 if tracking_device == "Yes" else 0
 
 # Policy_term
 policy_term = st.selectbox(
-    "Select your desired policy term in months", [6, 12, 24])
+    "Select your desired policy term in months:", [6, 12, 24])
 
 # Credit Score
 credit_score = int(st.number_input(
