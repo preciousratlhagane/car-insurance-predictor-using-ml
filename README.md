@@ -107,8 +107,7 @@ An interactive app has been built using Streamlit to demonstrate the prediction 
 ### To run the app locally
 
 ```bash
-cd streamlit
-streamlit run app.py
+streamlit run streamlit/home.py
 ```
 
 The app will open in your browser at: 
