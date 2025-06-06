@@ -1,4 +1,13 @@
 import streamlit as st
 
-st.title("Welcome to the Insurance Premium App")
-st.write("Navigate using the sidebar to get a premium estimate, understand coverage, or learn more.")
+st.set_page_config(page_title="Home", page_icon="🚙", layout="centered")
+
+st.title("🚙 Car Insurance Premium Predictor")
+
+st.markdown("""Welcome to **SafeDrive Analytics**, your trusted partner in data-driven insurance  
+            
+---
+
+### 💼 **Business Context**         
+            
+            """)
