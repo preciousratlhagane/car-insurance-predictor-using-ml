@@ -33,7 +33,9 @@ model = joblib.load(model_path)
 scaler, numeric_columns = joblib.load(scaler_path)
 model_features = joblib.load(model_features_path)
 
-st.set_page_config(page_title="Car Insurance Premium Predictor", page_icon="🚗")
+# Add design elements to the page
+st.set_page_config(page_title="Predict Premium", page_icon="📊")
+st.title("Predict Your Car Insurance Premium")
 
 st.header("Demographic information")
 
@@ -201,4 +203,4 @@ if pressed:
         prediction = model.predict(input_df_processed)
 
     # Display success message **outside** columns block, so it will be left aligned
-    st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f}")
+    st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f} per month")
