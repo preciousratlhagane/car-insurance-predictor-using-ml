@@ -34,7 +34,7 @@ model_features = joblib.load(model_features_path)
 
 # Add design elements to the page
 st.set_page_config(page_title="Predict Premium", page_icon="📊")
-st.title("Predict Your Car Insurance Premium")
+st.title("🏎️ Predict Your Car Insurance Premium")
 
 st.header("Demographic information")
 
