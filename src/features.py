@@ -1,8 +1,24 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Preprocesses the input DataFrame by engineering new features, dropping non-informative columns, and encoding categorical variables. 
+
+    The preprocessing steps include:
+        1. Creating a new feature 'Accident_Claim_Rate'
+        2. Creating a new feature 'Claims_per_Year'
+        3. Dropping the 'Customer ID' column, if it exists, as it is non-informative for modelling.
+        4. One-hot encoding all categorical features, dropping the first category in each to avoid multicollinearity.
+
+    Args:
+        df (pd.DataFrame): A pandas DataFrame containing the raw feature data, including 'Number_of_Claims', 'Number_of_Accidents', 'Years_Driving', and possibly categorical columns
+
+    Returns:
+        pd.DataFrame: A processed DataFrame with additional numerical features and encoded categorical features, ready for use in a machine learning model. 
+    """
+    # Create a copy of the dataframe
     df = df.copy()
 
     # Calculate the proportion of the claims to the number of accidents
@@ -20,7 +36,6 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
 
     # One hot-encode categorical features
     categorical_cols = df.select_dtypes(include=object).columns
-
     df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 
     return df
