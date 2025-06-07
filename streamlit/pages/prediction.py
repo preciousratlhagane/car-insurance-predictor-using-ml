@@ -102,7 +102,7 @@ manufacture_year = int(st.number_input(
 
 # Annual_car_mileage
 annual_car_mileage = int(st.number_input(
-    "Enter the annual car mileage:", value=10000, min_value=0, max_value=500000))
+    "Enter the annual car mileage in kilometres:", value=10000, min_value=0, max_value=500000))
 
 # Number of accidents
 number_of_accidents = int(st.number_input(
@@ -129,12 +129,27 @@ policy_term = st.selectbox(
 
 # Credit Score
 credit_score = int(st.number_input(
-    "Enter your credit score", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
+    "Enter your credit score:", value=350, placeholder="Enter your credit score...",  min_value=300, max_value=850, step=1))
 
 # Define the credit category based on the credit score given:
 
 
 def categorize_credit_score(credit_score):
+    """
+    Categorizes a numerical credit score into a credit rating category
+
+    The categories are based on standard FICO credit score ranges:
+        - Poor: < 580
+        - Fair: 580-669
+        - Good: 670-739
+        - Very Good: 740-799
+        - Excellent: 800 and above
+    Args:
+        credit_score (int): The numerical credit score to categorize
+
+    Returns:
+        str: A string representing the credit score category ('Poor', 'Fair', 'Good', 'Very Good' or 'Excellent')
+    """
     if credit_score < 580:
         return "Poor"
     elif 580 <= credit_score < 670:
@@ -147,6 +162,7 @@ def categorize_credit_score(credit_score):
         return "Excellent"
 
 
+# Create a new feature called credit category based on user input
 credit_category = categorize_credit_score(credit_score)
 
 input_dictionary = {
@@ -197,11 +213,12 @@ if pressed:
         for col in missing_numeric_cols:
             input_df_processed[col] = 0.0
 
+        # Scale the numerical features
         input_df_processed[numeric_columns] = scaler.transform(
             input_df_processed[numeric_columns]).astype('float64')
 
         # Predict
         prediction = model.predict(input_df_processed.values)
 
-    # Display success message **outside** columns block, so it will be left aligned
+    # Display success message
     st.success(f"Estimated Insurance Premium: R{prediction[0]:,.2f} per month")
