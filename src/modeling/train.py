@@ -1,5 +1,6 @@
 import os
 import sys
+
 import joblib
 import numpy as np
 import pandas as pd
@@ -35,6 +36,7 @@ all_numeric_columns = X_train.select_dtypes(include='number')
 columns_to_scale = all_numeric_columns.loc[:,
                                            all_numeric_columns.dtypes != 'uint8'].columns
 
+# Isolate the hot-one encoded features to prevent them from being scaled
 columns_to_leave_as = [
     col for col in X_train.columns if col not in columns_to_scale]
 
@@ -79,7 +81,7 @@ for model_name, model in models.items():
     r2_test = r2_score(y_test, y_test_pred)
     mae_percentage = np.mean(np.abs((y_test - y_test_pred) / y_test)) * 100
 
-    # Save to dictionary
+    # Save the model results to a dictionary
     model_results[model_name] = {
         "model": model,
         "MAE_Train": mae_train,
@@ -91,6 +93,7 @@ for model_name, model in models.items():
         "MAPE_Test": mae_percentage
     }
 
+    # Save the model results to a list
     metrics_list.append({
         "model": model,
         "MAE_Train": mae_train,
