@@ -76,7 +76,7 @@ This project uses predictive analytics to help the company optimise risk assessm
 ```
 
 --------
-## 🪛 Installation <a class="anchor" id="installation"></a>
+## Installation <a class="anchor" id="installation"></a>
 
 
 ```bash
