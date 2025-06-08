@@ -113,11 +113,20 @@ The app will open in your browser at:
 http://localhost:8501
 ```
 
+### 🖥️ App Preview
+
+![App Screenshot](assets/homepage.png)
+
+The app includes:
+- Sidebar navigation to "About", "Coverage", "FAQs" and "Prediction"
+- A form where users input details about themselves and their vehicles
+- Real-time premium estimates powered by a machine learning model
+
 ### 🌐 Live Demonstration
 
 A live version of the app is hosted at: [Car_Insurance_Predictor_App](https://car-insurance-premium-predictor.streamlit.app/prediction)
 
-### 🖥️ App Preview
+
 
 
 ## 🤖 Results <a class="anchor" id="results"></a>
