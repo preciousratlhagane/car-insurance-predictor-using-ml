@@ -44,7 +44,7 @@ age = int(st.number_input(
 ))
 
 # Enter your gender
-gender = st.selectbox("Gender", ["Female", "Male"])
+gender = st.selectbox("Gender:", ["Female", "Male"])
 
 # Marital_Status
 marital_status = st.selectbox(
