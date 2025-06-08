@@ -52,7 +52,7 @@ marital_status = st.selectbox(
 
 # Province
 province = st.selectbox("Select the province you currently reside in:", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo" "Mpumalanga",
-                                                                         "North West",  "Nothern Cape", "Western Cape"])
+                                                                         "North West",  "Northern Cape", "Western Cape"])
 
 # Education Level
 education_level = st.selectbox(
@@ -134,9 +134,9 @@ credit_score = int(st.number_input(
 # Define the credit category based on the credit score given:
 
 
-def categorize_credit_score(credit_score):
+def categorise_credit_score(credit_score):
     """
-    Categorizes a numerical credit score into a credit rating category
+    Categorises a numerical credit score into a credit rating category
 
     The categories are based on standard FICO credit score ranges:
         - Poor: < 580
@@ -145,7 +145,7 @@ def categorize_credit_score(credit_score):
         - Very Good: 740-799
         - Excellent: 800 and above
     Args:
-        credit_score (int): The numerical credit score to categorize
+        credit_score (int): The numerical credit score to categorise
 
     Returns:
         str: A string representing the credit score category ('Poor', 'Fair', 'Good', 'Very Good' or 'Excellent')
@@ -163,7 +163,7 @@ def categorize_credit_score(credit_score):
 
 
 # Create a new feature called credit category based on user input
-credit_category = categorize_credit_score(credit_score)
+credit_category = categorise_credit_score(credit_score)
 
 input_dictionary = {
     "Age": age,

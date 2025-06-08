@@ -5,7 +5,7 @@ import pandas as pd
 
 def fix_invalid_education_rows(data: pd.DataFrame) -> pd.DataFrame:
     """
-    Removes rows from the dataframe where the individual's age is below the minimu required for their reported education level.
+    Removes rows from the dataframe where the individual's age is below the minimum required for their reported education level.
 
     The function assumes the following minimum age thresholds:
     - High School: 18
@@ -116,9 +116,9 @@ def fix_invalid_driving_years(data: pd.DataFrame) -> pd.DataFrame:
     """
     Corrects entries in the 'Years_Driving' column that exceed the maximum possible driving years based on the individual's age. 
 
-    Assumes the minimum legal driving age is 18. Therefore, the maximum possible driving years for an individual is (Age - 18).
+    Assumes the minimum legal driving age is 18. Therefore, an individual's maximum possible driving years is (Age - 18).
 
-    For any record where 'Years_Driving' exceeds this maximum, the value is capped to (Age - 18).
+    For any record where 'Years_Driving' exceeds this maximum, the value is capped at (Age - 18).
     Args:
         data (pd.DataFrame): A pandas DataFrame containing at least the columns 'Age' and 'Years_Driving'.
 
@@ -138,10 +138,10 @@ def clean_dataset(data: pd.DataFrame) -> pd.DataFrame:
     Cleans the input dataset by applying a series of data quality checks and corrections.
 
     The cleaning process includes:
-        1. Dropping rows that are completely empty.
+        1. Dropping empty rows.
         2. Removing duplicate rows and resetting the index.
         3. Removing the rows with invalid education levels based on age.
-        4. Fixing employment statuses that are inconsistent with the individual's age, while balancing the overall distribution.
+        4. Fixing employment statuses inconsistent with the individual's age, while balancing the overall distribution.
         5. Capping 'Years_Driving' values that exceed the maximum possible based on age.
 
     Args:

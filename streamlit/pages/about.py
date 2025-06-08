@@ -17,8 +17,8 @@ This prototype was developed by a data science intern as part of a predictive an
 [Github Repo](https://github.com/preciousratlhagane/car-insurance-predictor-using-ml.git)
 
 ### 🚧 Limitations & Future 
-- Incoporate more real-world data
-- Expand model to other insurance types
+- Incorporate more real-world data
+- Expand the model to other insurance types
 - Implement user authentication and persistent user history
 
 ### 📩 Contact

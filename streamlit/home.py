@@ -15,13 +15,13 @@ At SafeDrive Analytics, we understand the challenges that small insurers face in
 - Customer dissatisfaction
 - Revenue loss from underpricing or overpricing
 
-Our solution? A machine-learning powered pricing engine that uses historical data to predict fair, consistent, and personalized insurance premiums.
+Our solution? A machine-learning-powered pricing engine that uses historical data to predict fair, consistent, and personalised insurance premiums.
 
 ---
 
 ### 🧠 **What the App Does**
 - Analyses customer profile, vehicle details, and driving history
-- Predicts personalized car insurance premiums
+- Predicts personalised car insurance premiums
 - Provides insights into how premiums are influenced
 
 Use the **Prediction** page to get started, and visit **Coverage**, **FAQs**, and **About** for more information.

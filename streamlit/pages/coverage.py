@@ -8,7 +8,7 @@ st.markdown("""
 At **SafeDrive Analytics**, our predictive model is designed to assist in pricing premiums for policies that cover:
 
 ### 🚘 **Vehicle Coverage**
--  Accidental damage
+- Accidental damage
 - Theft and hijacking
 - Natural disasters (fire, flood, hail)
 

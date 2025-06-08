@@ -21,7 +21,7 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     # Create a copy of the dataframe
     df = df.copy()
 
-    # Calculate the proportion of the claims to the number of accidents
+    # Calculate the proportion of claims to the number of accidents
     df['Accident_Claim_Rate'] = df['Number_of_Claims'] / \
         df['Number_of_Accidents'].replace(0, np.nan)
     df['Accident_Claim_Rate'] = df['Accident_Claim_Rate'].fillna(0)
@@ -34,7 +34,7 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     # Drop only non-useful columns
     df.drop(columns=["Customer_ID"], inplace=True, errors="ignore")
 
-    # One hot-encode categorical features
+    # One-hot-encode categorical features
     categorical_cols = df.select_dtypes(include=object).columns
     df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 

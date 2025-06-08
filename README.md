@@ -15,7 +15,7 @@
 ## 💭 Introduction <a class="anchor" id="introduction"></a>
 A small South African insurance provider wants to improve how it sets insurance premiums for new and existing customers. The current pricing strategy uses basic demographic data and manual risk assessments, often leading to inconsistent pricing, customer dissatisfaction, and potential revenue loss due to underpricing or overpricing. 
 
-This project uses predictive analytics to help the company optimize risk assessment, improve profitability, and offer fairer premiums to customers.
+This project uses predictive analytics to help the company optimise risk assessment, improve profitability, and offer fairer premiums to customers.
 
 
 ## 📔 Dataset <a class="anchor" id="dataset"></a>
@@ -121,7 +121,7 @@ A live version of the app is hosted at: *app_link*
 
 
 ## 🤖 Results <a class="anchor" id="results"></a>
-The best-performing model was **Ridge model**, achieving:
+The best-performing model was the **Ridge model**, achieving:
 - MAE: 15.72
 - RMSE: 20.35
 - R² Score: 0.99
@@ -135,13 +135,13 @@ The best-performing model was **Ridge model**, achieving:
 
 ## 🧪 Future Improvements <a class="anchor" id="future-improvements"></a>
 - Perform hyperparameter tuning with GridSearchCV or Optuna to improve model accuracy
-- Integrate real-world datasets(e.g Kaggle, Google Dataset Search, public APIs) to enhance data diversity and quality. 
+- Integrate real-world datasets (e.g., Kaggle, Google Dataset Search, public APIs) to enhance data diversity and quality. 
 - Implement user authentication and persistent user history in the Streamlit application
 - Expand model to other insurance types
 
 
 ## 📜 License <a class="anchor" id="license"></a>
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
 
 > For educational and demonstration purposes. Data and visuals are not intended for commercial use.
 
