@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import pandas as pd
 
@@ -41,11 +43,21 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# Load the cleaned dataset
-processed_dataset = pd.read_csv("../data/interim/processed_data.csv")
+# Get absolute path of this features.py file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Build full path to the CSV relative to features.py location
+data_path = os.path.abspath(os.path.join(
+    BASE_DIR, '..', 'data', 'interim', 'processed_data.csv'))
+
+processed_dataset = pd.read_csv(data_path)
 
 # Preprocess the features
 cleaned_df = preprocess_features(processed_dataset)
 
 # Save the cleaned data
-cleaned_df.to_csv("../data/processed/cleaned_data.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+output_path = os.path.abspath(os.path.join(
+    BASE_DIR, '..', 'data', 'processed', 'cleaned_data.csv'))
+
+cleaned_df.to_csv(output_path, index=False)
