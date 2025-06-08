@@ -9,7 +9,7 @@
 * [Results](#results)
 * [Technologies Used](#technologies-used)
 * [Future Improvements](#future-improvements)
-* [License](#license)
+* [Licence](#licence)
 
 
 ## 💭 Introduction <a class="anchor" id="introduction"></a>
@@ -149,8 +149,8 @@ The best-performing model was the **Ridge model**, achieving:
 - Expand model to other insurance types
 
 
-## 📜 License <a class="anchor" id="license"></a>
-This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+## 📜 Licence <a class="anchor" id="license"></a>
+This project is licensed under the MIT License – see the [LICENCE](./LICENCE) file for details.
 
 > For educational and demonstration purposes. Data and visuals are not intended for commercial use.
 
