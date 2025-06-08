@@ -40,7 +40,7 @@ st.header("Demographic information")
 
 # Enter your age
 age = int(st.number_input(
-    "Enter your age", value=20, placeholder="Type a number...", min_value=18, max_value=100
+    "Enter your age:", value=20, placeholder="Type a number...", min_value=18, max_value=100
 ))
 
 # Enter your gender
