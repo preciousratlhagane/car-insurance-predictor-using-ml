@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 ## ⌨️ App Deployment <a class="anchor" id="app-deployment"></a>
 
-An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model. 
+An interactive app has been built using Streamlit to demonstrate the prediction of car insurance premiums. Through a simple UI, users can input customer and vehicle information and receive a premium estimate based on the trained machine learning model
 
 ### To run the app locally
 
@@ -144,7 +144,7 @@ The best-performing model was the **Ridge model**, achieving:
 
 ## 🧪 Future Improvements <a class="anchor" id="future-improvements"></a>
 - Perform hyperparameter tuning with GridSearchCV or Optuna to improve model accuracy
-- Integrate real-world datasets (e.g., Kaggle, Google Dataset Search, public APIs) to enhance data diversity and quality. 
+- Integrate real-world datasets (e.g., Kaggle, Google Dataset Search, public APIs) to enhance data diversity and quality.
 - Implement user authentication and persistent user history in the Streamlit application
 - Expand model to other insurance types
 
