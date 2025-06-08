@@ -51,7 +51,7 @@ marital_status = st.selectbox(
     "What is your current marital status?", ["Divorced", "Married", "Single", "Widowed"])
 
 # Province
-province = st.selectbox("Select the province you currently reside in:", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo" "Mpumalanga",
+province = st.selectbox("Select the province you currently reside in:", ["Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga",
                                                                          "North West",  "Northern Cape", "Western Cape"])
 
 # Education Level
@@ -102,7 +102,7 @@ manufacture_year = int(st.number_input(
 
 # Annual_car_mileage
 annual_car_mileage = int(st.number_input(
-    "Enter the annual car mileage in kilometres:", value=10000, min_value=0, max_value=500000))
+    "Enter the annual car mileage in kilometres:", value=100, min_value=0, max_value=500000))
 
 # Number of accidents
 number_of_accidents = int(st.number_input(
