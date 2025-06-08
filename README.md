@@ -45,7 +45,9 @@ This project uses predictive analytics to help the company optimize risk assessm
 ├── assets             <- Contains images and visual assets for documentation/app
 ├── data
 │   ├── processed      <- The final, canonical data sets for modelling
+    ├── interim        <- Intermediate data that has been transformed
 │   └── raw            <- The original, immutable data dump
+
 │
 ├── models             <- Trained and serialised models, model predictions, or model summaries
 │
