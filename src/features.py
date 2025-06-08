@@ -43,7 +43,7 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-# Get absolute path of this features.py file
+# Get the base absolute path of this file
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Build full path to the CSV relative to features.py location
@@ -56,7 +56,6 @@ processed_dataset = pd.read_csv(data_path)
 cleaned_df = preprocess_features(processed_dataset)
 
 # Save the cleaned data
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 output_path = os.path.abspath(os.path.join(
     BASE_DIR, '..', 'data', 'processed', 'cleaned_data.csv'))
 
