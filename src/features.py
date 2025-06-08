@@ -39,3 +39,13 @@ def preprocess_features(df: pd.DataFrame) -> pd.DataFrame:
     df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
 
     return df
+
+
+# Load the cleaned dataset
+processed_dataset = pd.read_csv("../data/interim/processed_data.csv")
+
+# Preprocess the features
+cleaned_df = preprocess_features(processed_dataset)
+
+# Save the cleaned data
+cleaned_df.to_csv("../data/processed/cleaned_data.csv")
