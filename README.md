@@ -115,7 +115,7 @@ http://localhost:8501
 
 ### 🌐 Live Demonstration
 
-A live version of the app is hosted at: *app_link*
+A live version of the app is hosted at: *https://car-insurance-premium-predictor.streamlit.app/prediction*
 
 ### 🖥️ App Preview
 
