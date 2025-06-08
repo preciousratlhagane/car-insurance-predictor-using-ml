@@ -23,9 +23,13 @@ if project_root not in sys.path:
 from src.features import preprocess_features  # noqa: E402
 
 # Paths to the model and scaler
-model_path = ("../models/ridge_model.joblib")
-scaler_path = ("../models/scaler.joblib")
-model_features_path = ("../models/model_features.joblib")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.abspath(os.path.join(
+    BASE_DIR, '..', '..', 'models', 'ridge_model.joblib'))
+scaler_path = os.path.abspath(os.path.join(
+    BASE_DIR, '..', '..', 'models', 'scaler.joblib'))
+model_features_path = os.path.abspath(os.path.join(
+    BASE_DIR, '..', '..', 'models', 'model_features.joblib'))
 
 # Load model and scaler
 model = joblib.load(model_path)
