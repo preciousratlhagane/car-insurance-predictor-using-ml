@@ -156,3 +156,13 @@ def clean_dataset(data: pd.DataFrame) -> pd.DataFrame:
     data = fix_employment_status(data)
     data = fix_invalid_driving_years(data)
     return data
+
+
+# Load the raw dataset
+raw_dataset = pd.read_csv("../data/raw/car_insurance_premiums_dataset.csv")
+
+# Clean the data
+processed_dataset = clean_dataset(raw_dataset)
+
+# Save the cleaned dataset
+processed_dataset.to_csv("../data/interim/processed_data.csv", index=False)
