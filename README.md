@@ -1,15 +1,15 @@
 # Improving Car Insurance Premium Accuracy with Predictive Analytics
 
 ## 🗞️ Table of Contents
-* [Introduction](#-introduction)
-* [Dataset](#-dataset)
-* [Project Structure](#-project-structure)
+* [Introduction](#introduction)
+* [Dataset](#dataset)
+* [Project Structure](#project-structure)
 * [Installation](#️-installation)
 * [App Deployment](#app-deployment)
 * [Results](#results)
 * [Technologies Used](#technologies-used)
 * [Future Improvements](#future-improvements)
-* [License](#-license)
+* [License](#license)
 
 
 ## 💭 Introduction <a class="anchor" id="introduction"></a>
