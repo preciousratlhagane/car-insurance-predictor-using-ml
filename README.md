@@ -4,7 +4,7 @@
 * [Introduction](#introduction)
 * [Dataset](#dataset)
 * [Project Structure](#project-structure)
-* [Installation](#️-installation)
+* [Installation](#️installation)
 * [App Deployment](#app-deployment)
 * [Results](#results)
 * [Technologies Used](#technologies-used)
@@ -149,7 +149,7 @@ The best-performing model was the **Ridge model**, achieving:
 - Expand model to other insurance types
 
 
-## 📜 Licence <a class="anchor" id="license"></a>
+## 📜 Licence <a class="anchor" id="licence"></a>
 This project is licensed under the MIT License – see the [LICENCE](./LICENCE) file for details.
 
 > For educational and demonstration purposes. Data and visuals are not intended for commercial use.
